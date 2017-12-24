@@ -6,6 +6,7 @@
 		window.alert("弹出警示框")
 	}
 </script>
+<br>
 ###这是山东省GDP分布图
 <iframe src="https://api.mapbox.com/styles/v1/fengyu1995/cjb31h5pkpbnk2soctyezx36a.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZmVuZ3l1MTk5NSIsImEiOiJjamIzMDNld2o3czkxMnFucWNjc2ozc2tjIn0.c829L8C-KkQVaeBBks6D_w#5.6/36.369/118.077" width="700px" height="500px" > </iframe>
 ###这是山东省pm2.5分布图
