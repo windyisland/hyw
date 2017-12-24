@@ -21,20 +21,13 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isP
 <style type="text/css">
 
 #wrapper {
-	position: absolute;
 	z-index: 1;
 	top: 45px;
 	bottom: 48px;
 	left: 0;
 	width: 100%;
-	background: #ccc;
 	overflow: hidden;
 }
-
-#scroller {
-	position: absolute;
-}
-
 #scroller ul {
 	list-style: none;
 	padding: 0;
