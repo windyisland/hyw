@@ -9,20 +9,15 @@
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/iscroll.js"></script>
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/utils.js"></script>
 <script type="text/javascript">
-
 var myScroll;
-
 function loaded () {
 	myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: false, mouseWheel: true });
 }
-
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
 	capture: false,
 	passive: false
 } : false);
-
 </script>
-
 <style type="text/css">
 * {
 	-webkit-box-sizing: border-box;
@@ -46,33 +41,6 @@ body {
 	overflow: hidden; /* this is important to prevent the whole page to bounce */
 }
 
-#header {
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 45px;
-	line-height: 45px;
-	background: #CD235C;
-	padding: 0;
-	color: #eee;
-	font-size: 20px;
-	text-align: center;
-	font-weight: bold;
-}
-
-#footer {
-	position: absolute;
-	z-index: 2;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 48px;
-	background: #444;
-	padding: 0;
-	border-top: 1px solid #444;
-}
 
 #wrapper {
 	position: absolute;
@@ -131,7 +99,6 @@ body {
 </style>
 </head>
 <body onload="loaded()">
-<div id="header">iScroll</div>
 
 <div id="wrapper">
 	<div id="scroller">
@@ -141,58 +108,21 @@ body {
 			<li>Cell 3</li>
 			<li>Cell 4</li>
 			<li>Cell 5</li>
-			<li>Cell 6</li>
-			<li>Cell 7</li>
-			<li>Cell 8</li>
-			<li>Cell 9</li>
-			<li>Cell 10</li>
-			<li>Cell 11</li>
-			<li>Cell 12</li>
-			<li>Cell 13</li>
-			<li>Cell 14</li>
-			<li>Cell 15</li>
-			<li>Cell 16</li>
-			<li>Cell 17</li>
-			<li>Cell 18</li>
-			<li>Cell 19</li>
-			<li>Cell 20</li>
-			<li>Cell 21</li>
-			<li>Cell 22</li>
-			<li>Cell 23</li>
-			<li>Cell 24</li>
-			<li>Cell 25</li>
-			<li>Cell 26</li>
-			<li>Cell 27</li>
-			<li>Cell 28</li>
-			<li>Cell 29</li>
-			<li>Cell 30</li>
-			<li>Cell 31</li>
-			<li>Cell 32</li>
-			<li>Cell 33</li>
-			<li>Cell 34</li>
-			<li>Cell 35</li>
-			<li>Cell 36</li>
-			<li>Cell 37</li>
-			<li>Cell 38</li>
-			<li>Cell 39</li>
-			<li>Cell 40</li>
-			<li>Cell 41</li>
-			<li>Cell 42</li>
-			<li>Cell 43</li>
-			<li>Cell 44</li>
-			<li>Cell 45</li>
-			<li>Cell 46</li>
-			<li>Cell 47</li>
-			<li>Cell 48</li>
-			<li>Cell 49</li>
-			<li>Cell 50</li>
 		</ul>
 	</div>
 </div>
+<h1>现代地图学作业</h1>>
+<br>
+<h2>这是山东省GDP分布图</h2>
+<iframe src="https://api.mapbox.com/styles/v1/fengyu1995/cjb31h5pkpbnk2soctyezx36a.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZmVuZ3l1MTk5NSIsImEiOiJjamIzMDNld2o3czkxMnFucWNjc2ozc2tjIn0.c829L8C-KkQVaeBBks6D_w#5.6/36.369/118.077" width="700px" height="500px" > </iframe><br>
+<h2>这是山东省pm2.5分布图</h2>
+<iframe src="https://api.mapbox.com/styles/v1/xieyunpeng/cjbkfej0p27mb2sl13g9ptu79.html?fresh=true&title=true&access_token=pk.eyJ1IjoieGlleXVucGVuZyIsImEiOiJjajFvbTRzNWowMTk5MzJwaTZwY3Vxd2x0In0.fFYplGoeSpjBlsqBi2iovA#6.4/36.833770/118.715140/0" width="700px" height="500px" > </iframe><br>
+<h2>山东省降雨量分布图</h2>
+<iframe src="https://api.mapbox.com/styles/v1/fengyu1995/cjbkpzmwp1erm2rpblfb7dgu1.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZmVuZ3l1MTk5NSIsImEiOiJjamIzMDNld2o3czkxMnFucWNjc2ozc2tjIn0.c829L8C-KkQVaeBBks6D_w#5.9/36.380410/119.567368/0" width="700px" height="500px" > </iframe><br>
 
-<div id="footer"></div>
 
 </body>
+
 </html>
 
 
