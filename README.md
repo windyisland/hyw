@@ -57,8 +57,8 @@ body {
 	position: absolute;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	width: 5000px;
-	height: 100%;
+	width: 100%;
+	height: 100px;
 	background-color: #a00;
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
