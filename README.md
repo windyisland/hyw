@@ -6,7 +6,6 @@
 <title>现代地图学作业</title>
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/iscroll.js"></script>
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/utils.js"></script>
-<script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/xddtx_homework_ui.css"></script>
 <script type="text/javascript">
 	
 var myScroll;
@@ -86,6 +85,79 @@ function g(x)
 
 </script>
 
+<style type="text/css">
+	
+h1{
+	text-align: center;
+}
+body{
+	width:80%;
+	padding-left: 5%
+}
+h3{
+	padding-left:  50%;
+}
+iframe{
+	width: 100%;
+	height:800px;
+}
+p{
+	font-size: 150%;
+}
+
+#wrapper {
+	top: 53%;
+	bottom: 48px;
+	left: 0;
+	width: 100%;
+	height:10%;
+	overflow: hidden;
+}
+
+#scroller {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 150%;
+	height: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+#scroller li {
+	display: block;
+	float: left;
+	width: 15%;
+	height: 100%;
+	border-right: 1px solid #ccc;
+	background-color: #fafafa;
+	font-size: 130%;
+	line-height:450%;
+	border-radius:3%;
+	-webkit-border-radius:3%;
+	-moz-border-radius :3%;
+}
+
+</style>
 </head>
 <body onload="loaded()">
 
