@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Custom legend</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
+<style type="text/css">
+  body {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (info box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#features {
+  top: 0;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+</style>
+</head>
+<body>
+<div id='map'></div>
+<div class='map-overlay' id='features'>
+  <h2>数据展示区:</h2>
+  <div id='pd'>
+    <p>当前地区没有数据</p>
+  </div>
+</div>
+<div class='map-overlay' id='legend'></div>
+<script type="text/javascript">
+  mapboxgl.accessToken = 'pk.eyJ1IjoieGlleXVucGVuZyIsImEiOiJjajFvbTRzNWowMTk5MzJwaTZwY3Vxd2x0In0.fFYplGoeSpjBlsqBi2iovA';
+  var map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/xieyunpeng/cjbkfej0p27mb2sl13g9ptu79' // replace this with your style URL
+});
+  var layers = ['0-20', '20-30', '30-35', '35-40', '40-45', '45-55', '55-60', '60-65'];
+  var colors = ['rgba(0,245,0,0.92)', 'rgba(107,248,0,0.98)', 'rgba(165,247,0,0.98)', 'rgba(223,247,0,0.98)', 'rgba(250,217,0,0.98)', 'rgba(252,156,0,0.98)', 'rgba(250,96,0,0.98)', 'rgba(245,0,0,0.98)'];
+  for (i = 0; i < layers.length; i++) {
+  var layer = layers[i];
+  var color = colors[i];
+  var item = document.createElement('div');
+  var key = document.createElement('span');
+  key.className = 'legend-key';
+  key.style.backgroundColor = color;
+
+  var value = document.createElement('span');
+  value.innerHTML = layer;
+  item.appendChild(key);
+  item.appendChild(value);
+  legend.appendChild(item);
+}
+
+  map.on('mousemove', function(e) {
+  var states = map.queryRenderedFeatures(e.point, {
+    layers: ['pm-14t62g']
+  });
+
+  if (states.length > 0) {
+    document.getElementById('pd').innerHTML = '<h3><strong>此处pm为：' + states[0].properties.pm25 + '</strong>(μg/m³)</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>当前地区没有数据</p>';
+  }
+});
+  map.getCanvas().style.cursor = 'default';
+</script>
+</body>
+</html>
