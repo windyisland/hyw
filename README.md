@@ -151,7 +151,7 @@ p{
 	border-right: 1px solid #ccc;
 	background-color: #fafafa;
 	font-size: 130%;
-	line-height:450%;
+	line-height:500%;
 	border-radius:3%;
 	-webkit-border-radius:3%;
 	-moz-border-radius :3%;
