@@ -78,6 +78,9 @@ function g(x)
 	}
 }
 
+function load_map(){
+	document.getElementById("show_R").src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
+}
 </script>
 </head>
 <body onload="loaded()">
@@ -119,9 +122,9 @@ function g(x)
 <iframe id="show_ditu" src="https://raw.githack.com/windyisland/hyw/master/sdgdp.html"> </iframe><br>
 <br>
 <br>
-<h2>R+leaflet制图部分(第一幅图为北京房价图，第二幅图为京津冀植被分类图)</h2>
+<h2>R+leaflet制图部分(第一幅图为北京房价图，第二幅图为京津冀植被分类图)</h2><button onclick="load_map()">点击加载地图</button>>
 <br>
-<iframe id="show_R" src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html"> </iframe><br>
+<iframe id="show_R" src=""> </iframe><br>
 <p style="color: red;text-align: right;">网页仅供作业学习所用。如若数据有侵权请联系作者删除</p>
 </body>
 
