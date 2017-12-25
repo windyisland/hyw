@@ -3,101 +3,126 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
-<title>iScroll demo: horizontal scrolling</title>
+<title>现代地图学作业</title>
 
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/iscroll.js"></script>
 <script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/utils.js"></script>
+<script type="text/javascript" src="https://raw.githack.com/windyisland/hyw/master/xddtx_homework_ui.css"></script>
 <script type="text/javascript">
 var myScroll;
+var sdpm="https://raw.githack.com/windyisland/hyw/master/sdpm.html";
+var sdprec="https://raw.githack.com/windyisland/hyw/master/sdprec.html";
+var sdgdp="https://raw.githack.com/windyisland/hyw/master/sdgdp.html"
+var sdws="https://raw.githack.com/windyisland/hyw/master/sdws.html"
+//初始加载项
 function loaded () {
-	myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: false, mouseWheel: true });
+	//启用iscroll
+	myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: false, mouseWheel: false });
+	//设置移动加载项
+	var myul = document.getElementById("scroller_ul");
+	var myli = myul.getElementsByTagName("li");
+	for (var j = 0; j < myli.length; j++) {
+		myli[j].onmouseover=function(){
+			this.style.background = '#87CEFF';
+		}
+		myli[j].onmouseout = function () {
+			this.style.background = '#fafafa';
+		}
+	}
 }
+
+
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
 	capture: false,
 	passive: false
 } : false);
+
+//
+function g(x)
+{
+	//点击换颜色
+	d=document.getElementsByTagName('li')
+	for(p=d.length;p--;){
+		if(d[p].id!=x){
+			d[p].style.backgroundColor='#fafafa'/*其他*/
+			}
+		else{
+			d[p].style.backgroundColor='#3A5FCD'/*点击的*/
+			}
+	}
+	
+	//第二次移动时可以移动换色
+	pd_click=true;
+	var myul = document.getElementById("scroller_ul");
+	var myli = myul.getElementsByTagName("li");
+	for (var j = 0; j < myli.length; j++) {
+		myli[j].onmouseover=function(){
+			this.style.background = '#87CEFF';
+			pd_click=false;
+		}
+		myli[j].onmouseout = function () {
+		if (pd_click==false) {
+			this.style.background = '#fafafa';
+			}
+		}
+	}
+	
+	//点击转换iframe地图源
+	var element = document.getElementById('show_ditu');
+	switch (x) {
+	case "gdp":
+		element.src =sdgdp;
+		break;
+	case "prec":
+		element.src =sdprec;
+		break;
+	case "pm":
+		element.src =sdpm;
+		break;
+	case "wind":
+		element.src=sdws;
+	}
+}
+
 </script>
-<style type="text/css">
 
-#wrapper {
-	z-index: 1;
-	top: 45px;
-	bottom: 48px;
-	left: 0;
-	width: 100%;
-	height:10%;
-	overflow: hidden;
-}
-#scroller ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-}
-
-#scroller li {
-	display: block;
-	float: left;
-	width: 100px;
-	height: 100%;
-	border-right: 1px solid #ccc;
-	background-color: #fafafa;
-	font-size: 14px;
-}
-
-</style>
 </head>
 <body onload="loaded()">
 
+<h1>现代地图学作业</h1>>
+<h3>小组成员：黄焱威、索南东主、谢云鹏、李春林</h3>
+<h2>作业说明:</h2>
+<br>
+<p>&nbsp&nbsp&nbsp本次作业采用了mapbox和leaflet+R两种方式制图，其中用mapbox进行山东省GDP分布图、降雨分布图、风向分布图、温度分布图、pm2.5分布图的制作，用R-leaflet进行京津冀植被图和北京市房价图的制作。另外，制作网页时用到了iscroll.js(作用：使标签滑动更加流畅。方法：摁住标签页左右滑动)
+</p>
+<p>&nbsp&nbsp&nbsp注：(1)设计网页时用到的布局文件为xddtx_homework.css。<br>
+	&nbsp&nbsp&nbsp&nbsp&nbsp(2)mapbox中图例以及显示属性的交互采用Mapbox Studio和Mapbox GLJS 完成。 <br>
+	&nbsp&nbsp&nbsp&nbsp&nbsp(3)开发用到的文件（除shp以外）均以上传到github。 &nbsp<a href="https://github.com/windyisland/hyw">点我跳向github</a>
+</p>
+<br>
+<br>
+<br>
+<br>
+
+<h2>mapbox制图展示</h2>
+<br>
+<br>
+<br>
 <div id="wrapper">
 	<div id="scroller">
-		<ul>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
-			<li>Cell 1</li>
-			<li>Cell 2</li>
-			<li>Cell 3</li>
-			<li>Cell 4</li>
-			<li>Cell 5</li>
+		<ul id="scroller_ul">
+			<li id="gdp" onclick="g(this.id)">山东省某年GDP分布图</li>
+			<li id="prec" onclick="g(this.id)">山东省某月降雨分布图</li>
+			<li id="wind" onclick="g(this.id)">山东省某月风速分布图</li>
+			<li id="temp" onclick="g(this.id)">山东省某月温度分布图</li>
+			<li id="pm" onclick="g(this.id)">山东省某月pm2.5分布图</li>
 		</ul>
 	</div>
 </div>
-<h1>现代地图学作业</h1>>
 <br>
-<h2>这是山东省GDP分布图</h2>
-<iframe src="https://api.mapbox.com/styles/v1/fengyu1995/cjb31h5pkpbnk2soctyezx36a.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZmVuZ3l1MTk5NSIsImEiOiJjamIzMDNld2o3czkxMnFucWNjc2ozc2tjIn0.c829L8C-KkQVaeBBks6D_w#5.6/36.369/118.077" width="700px" height="500px" > </iframe><br>
-<h2>这是山东省pm2.5分布图</h2>
-<iframe src="https://api.mapbox.com/styles/v1/xieyunpeng/cjbkfej0p27mb2sl13g9ptu79.html?fresh=true&title=true&access_token=pk.eyJ1IjoieGlleXVucGVuZyIsImEiOiJjajFvbTRzNWowMTk5MzJwaTZwY3Vxd2x0In0.fFYplGoeSpjBlsqBi2iovA#6.4/36.833770/118.715140/0" width="700px" height="500px" > </iframe><br>
-<h2>山东省降雨量分布图</h2>
-<iframe src="https://api.mapbox.com/styles/v1/fengyu1995/cjbkpzmwp1erm2rpblfb7dgu1.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZmVuZ3l1MTk5NSIsImEiOiJjamIzMDNld2o3czkxMnFucWNjc2ozc2tjIn0.c829L8C-KkQVaeBBks6D_w#5.9/36.380410/119.567368/0" width="700px" height="500px" > </iframe><br>
 
+<iframe id="show_ditu" src="https://raw.githack.com/windyisland/hyw/master/sdgdp.html"> </iframe><br>
 
 </body>
 
 </html>
-
