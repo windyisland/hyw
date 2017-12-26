@@ -84,13 +84,13 @@ function load_map(){
 	if (iframe.attachEvent)
 	{
         iframe.attachEvent("onload", function(){
-            alert("Local iframe is now loaded1."); 
+            window.alert("Local iframe is now loaded1."); 
          });
     }
     else
     {
         iframe.onload = function(){
-            alert("Local iframe is now loaded2."); 
+            window.alert("Local iframe is now loaded2."); 
         };
     }
 }
