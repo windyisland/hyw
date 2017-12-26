@@ -72,7 +72,7 @@ p{
 	-webkit-border-radius:3%;
 	-moz-border-radius :3%;
 }
-div .button{
+button{
 	 background-color: #33CCFF;
 	 color: #fff;
 	 border: none;
