@@ -83,14 +83,17 @@ function load_map(){
 	R_iframe.src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
 	if (R_iframe.attachEvent)
 	{
+		document.getElementById("load_ready").innerHTML("正在加载中请稍后...");
         R_iframe.attachEvent("onload", function(){
-            window.alert("Local iframe is now loaded1."); 
+            console.log("Local iframe is now loaded1."); 
          });
+
     }
     else
     {
         R_iframe.onload = function(){
-            window.alert("Local iframe is now loaded2."); 
+        	document.getElementById("load_ready").innerHTML("加载完成！");
+            console.log("Local iframe is now loaded2."); 
         };
     }
 }
@@ -144,6 +147,7 @@ function load_map(){
   border-radius:3%;
   -webkit-border-radius:3%;
   -moz-border-radius :3%;">点击加载地图</button>
+ <p style="float: left" id="load_ready"></p>
 <br>
 <iframe id="show_R" src="https://raw.githack.com/windyisland/hyw/master/initial_img/initial_click_button.html"> </iframe><br>
 <p style="color: red;text-align: right;">网页仅供作业学习所用。如若数据有侵权请联系作者删除</p>
