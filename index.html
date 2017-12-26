@@ -83,13 +83,13 @@ function load_map(){
 	R_iframe.src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
 	if (iframe.attachEvent)
 	{
-        iframe.attachEvent("onload", function(){
+        R_iframe.attachEvent("onload", function(){
             window.alert("Local iframe is now loaded1."); 
          });
     }
     else
     {
-        iframe.onload = function(){
+        R_iframe.onload = function(){
             window.alert("Local iframe is now loaded2."); 
         };
     }
