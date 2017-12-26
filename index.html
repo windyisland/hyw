@@ -79,7 +79,20 @@ function g(x)
 }
 
 function load_map(){
-	document.getElementById("show_R").src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
+	var R_iframe=document.getElementById("show_R");
+	R_iframe.src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
+	if (iframe.attachEvent)
+	{
+        iframe.attachEvent("onload", function(){
+            alert("Local iframe is now loaded1."); 
+         });
+    }
+    else
+    {
+        iframe.onload = function(){
+            alert("Local iframe is now loaded2."); 
+        };
+    }
 }
 </script>
 </head>
