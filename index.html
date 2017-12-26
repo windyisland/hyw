@@ -11,8 +11,11 @@
 var myScroll;
 var sdpm="https://raw.githack.com/windyisland/hyw/master/sdpm.html";
 var sdprec="https://raw.githack.com/windyisland/hyw/master/sdprec.html";
-var sdgdp="https://raw.githack.com/windyisland/hyw/master/sdgdp.html"
-var sdws="https://raw.githack.com/windyisland/hyw/master/sdws.html"
+var sdgdp="https://raw.githack.com/windyisland/hyw/master/sdgdp.html";
+var sdws="https://raw.githack.com/windyisland/hyw/master/sdws.html";
+var count=0;
+var t;
+var point=[".","..","..."];
 //初始加载项
 function loaded () {
 	//启用iscroll
@@ -78,20 +81,39 @@ function g(x)
 	}
 }
 
+function time_count(){
+	var R_p=document.getElementById("load_ready");
+	R_p.innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp正在加载中请稍后"+point[count%3];
+	count++;
+	t=setTimeout("time_count()",1000);
+}
+
+function stopCount()
+ {
+ 	learTimeout(t)
+ }
+
+
+
+
 function load_map(){
 	var R_iframe=document.getElementById("show_R");
 	R_iframe.src="https://raw.githack.com/windyisland/hyw/master/R+leaflet.html";
+	var R_p=document.getElementById("load_ready");
+	time_count();
 	if (R_iframe.attachEvent)
 	{
-		document.getElementById("load_ready").innerText("正在加载中请稍后...");
         R_iframe.attachEvent("onload", function(){
+        	stopCount();
+        	R_p.innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp加载完成！";
             console.log("Local iframe is now loaded1."); 
          });
     }
     else
     {
         R_iframe.onload = function(){
-        	document.getElementById("load_ready").innerText("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp加载完成！");
+        	stopCount();
+        	R_p.innerHTML="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp加载完成！";
             console.log("Local iframe is now loaded2."); 
         };
     }
