@@ -15,7 +15,7 @@ var sdgdp="https://raw.githack.com/windyisland/hyw/master/sdgdp.html";
 var sdws="https://raw.githack.com/windyisland/hyw/master/sdws.html";
 var count=0;
 var t;
-var point=[".","..","..."];
+var point=["。","。。","。。。","。。。。"];
 //初始加载项
 function loaded () {
 	//启用iscroll
@@ -90,7 +90,7 @@ function time_count(){
 
 function stopCount()
  {
- 	learTimeout(t)
+ 	clearTimeout(t);
  }
 
 
